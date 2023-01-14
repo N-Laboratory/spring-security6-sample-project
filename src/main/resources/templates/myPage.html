@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <title>my page</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h2>My Page</h2>
+        <p sec:authorize="authenticated">
+            <p>username</p>
+            <span sec:authentication="principal.loginUser.name">
+            </span>
+            <p>password</p>
+            <span sec:authentication="principal.loginUser.password">
+            </span>
+            <p>email</p>
+            <span sec:authentication="principal.loginUser.email">
+            </span>
+            <p>role</p>
+            <span sec:authentication="principal.loginUser.role.name">
+            </span>
+            <p sec:authorize="hasRole('ADMIN')">You are admin user.</p>
+            <p sec:authorize="hasRole('GENERAL')">You are general user.</p>
+        </p>
+    </body>
+</html>

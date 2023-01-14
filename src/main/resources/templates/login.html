@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <title>login page</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>Login</h1>
+        <p th:if="${param.error}" class="error" style="color:red;">
+            invalid username or password
+        </p>
+        <form method="post" th:action="@{/login}">
+            <p>username</p>
+            <input type="text" name="username">
+            <p>password</p>
+            <input type="password" name="password">
+            <button type="submit">Login</button>
+        </form>
+    </body>
+</html>
